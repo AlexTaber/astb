@@ -1,3 +1,8 @@
-<span class="line-content">
+<span
+  class="line-content"
+  [ngClass]="{
+    'danger': line.type === 'danger'
+  }"
+>
   {{ displayString }}
 </span>

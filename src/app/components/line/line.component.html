@@ -1,10 +1,18 @@
 <app-line-content
-  *ngIf="line.content"
-  [content]="line.content"
+  *ngIf="line.content && !line.query"
+  [line]="line"
   (complete)="onComplete()"
 ></app-line-content>
 
 <app-line-loader
   *ngIf="line.loaderIndex"
-  [loaderIndex]="line.loaderIndex"
+  [line]="line"
+  (complete)="onComplete()"
 ></app-line-loader>
+
+<app-line-query
+  *ngIf="line.query"
+  [line]="line"
+  (correct)="onCorrectAnswer()"
+  (incorrect)="onIncorrectAnswer()"
+></app-line-query>

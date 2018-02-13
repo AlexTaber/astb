@@ -1,0 +1,7 @@
+.console-wrapper {
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
+    padding-bottom: 100px;
+    background: #010101;
+    padding-left: 8px;
+}

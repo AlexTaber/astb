@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Line } from '../../models/line';
 
 @Component({
   selector: 'app-line-loader',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class LineLoaderComponent implements OnInit {
   curLoaderIndex = 0;
 
-  @Input() loaderIndex: number;
+  @Input() line: Line;
 
   @Output() complete = new EventEmitter();
 
@@ -19,11 +20,11 @@ export class LineLoaderComponent implements OnInit {
   }
 
   getLoaderPercentage(): number {
-    return Math.round((this.curLoaderIndex / this.loaderIndex) * 100);
+    return Math.round((this.curLoaderIndex / this.line.loaderIndex) * 100);
   }
 
   private updateLoaderIndex() {
-    const loaderIsComplete = this.curLoaderIndex === this.loaderIndex;
+    const loaderIsComplete = this.curLoaderIndex === this.line.loaderIndex;
     loaderIsComplete ? this.onLoaderComplete() : this.setUpdatedLoaderIndex();
   }
 
@@ -33,6 +34,6 @@ export class LineLoaderComponent implements OnInit {
 
   private setUpdatedLoaderIndex() {
     this.curLoaderIndex ++;
-    setTimeout(() => this.updateLoaderIndex(), 10);
+    setTimeout(() => this.updateLoaderIndex(), this.line.timeoutLength);
   }
 }

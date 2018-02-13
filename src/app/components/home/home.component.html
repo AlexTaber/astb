@@ -1,0 +1,8 @@
+<app-console
+  *ngIf="!celebrationMode; else celebration"
+  (celebrate)="onCelebration()"
+></app-console>
+
+<ng-template #celebration>
+  <app-celebration></app-celebration>
+</ng-template>

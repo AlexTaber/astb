@@ -1,0 +1,29 @@
+<form
+  *ngIf="!completed"
+  (submit)="onSubmit($event)"
+>
+  <label for="queryValue"
+    *ngIf="line.query.label"
+    class="query-label"
+  >
+    {{ line.query.label }}
+  </label>
+
+  <input
+    type="text"
+    name="queryValue"
+    [(ngModel)]="queryValue"
+  >
+
+  <button
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+
+<app-line-content
+  *ngIf="completed"
+  [line]="line"
+  (complete)="onComplete()"
+></app-line-content>

@@ -8,4 +8,8 @@ export class HackingConsole {
     }) {
         Object.assign(this, params);
     }
+
+    insertLine(line: Line, index: number) {
+        this.lines.splice(index, 0, line);
+    }
 }

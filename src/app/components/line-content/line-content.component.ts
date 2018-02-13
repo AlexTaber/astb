@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Line } from '../../models/line';
 
 @Component({
   selector: 'app-line-content',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class LineContentComponent implements OnInit {
   displayString = '';
 
-  @Input() content: string;
+  @Input() line: Line;
 
   @Output() complete = new EventEmitter();
 
@@ -19,7 +20,7 @@ export class LineContentComponent implements OnInit {
   }
 
   private updateDisplayString() {
-    const stringIsComplete = this.displayString.length === this.content.length;
+    const stringIsComplete = this.displayString.length === this.line.content.length;
     stringIsComplete ? this.onLineComplete() : this.setUpdatedDisplayString();
   }
 
@@ -29,7 +30,7 @@ export class LineContentComponent implements OnInit {
 
   private setUpdatedDisplayString() {
     const stringIndex = this.displayString.length + 1;
-    this.displayString = this.content.slice(0, stringIndex);
-    setTimeout(() => this.updateDisplayString(), 10);
+    this.displayString = this.line.content.slice(0, stringIndex);
+    setTimeout(() => this.updateDisplayString(), this.line.timeoutLength);
   }
 }

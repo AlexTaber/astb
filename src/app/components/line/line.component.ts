@@ -12,6 +12,8 @@ export class LineComponent implements OnInit {
   @Input() line: Line;
 
   @Output() complete = new EventEmitter();
+  @Output() incorrect = new EventEmitter();
+  @Output() correct = new EventEmitter();
 
   constructor() { }
 
@@ -19,5 +21,13 @@ export class LineComponent implements OnInit {
 
   onComplete() {
     this.complete.emit();
+  }
+
+  onCorrectAnswer() {
+    this.correct.emit();
+  }
+
+  onIncorrectAnswer() {
+    this.incorrect.emit();
   }
 }

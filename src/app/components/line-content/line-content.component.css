@@ -3,3 +3,7 @@
     line-height: 2em;
     color: lime;
 }
+
+.danger {
+    color: red;
+};
