@@ -1,0 +1,11 @@
+<div class="console-wrapper">
+  <ng-container
+    *ngFor="let line of hackingConsole.lines; let idx = index"
+  >
+    <app-line
+      *ngIf="canRenderLine(idx)"
+      [line]="line"
+      (complete)="onLineComplete()"
+    ></app-line>
+  </ng-container>
+</div>

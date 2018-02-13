@@ -1,0 +1,10 @@
+.line-loader-wrapper {
+    width: 200px;
+    height: 30px;
+    background: grey;
+}
+
+.line-loader-progress-bar {
+    height: 30px;
+    background: lime;
+}

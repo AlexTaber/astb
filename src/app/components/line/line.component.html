@@ -1,0 +1,10 @@
+<app-line-content
+  *ngIf="line.content"
+  [content]="line.content"
+  (complete)="onComplete()"
+></app-line-content>
+
+<app-line-loader
+  *ngIf="line.loaderIndex"
+  [loaderIndex]="line.loaderIndex"
+></app-line-loader>
